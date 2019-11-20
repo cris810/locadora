@@ -10,7 +10,7 @@ package Principal;
  * @author Aluno
  */
 public class Main {
-    public static void main(string[] args){
+    public static void main(String[] args){
         new Login().setVisible(true);
         
     }
