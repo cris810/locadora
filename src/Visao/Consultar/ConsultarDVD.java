@@ -48,8 +48,12 @@ public class ConsultarDVD extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/lupa1.png"))); // NOI18N
+
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Pesquisa por Código do Filme:");
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/lupa1.png"))); // NOI18N
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton3.setText("TODOS");
