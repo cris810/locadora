@@ -10,5 +10,6 @@ package Modelo;
  * @author crisl
  */
 public class Categoria {
-    
+    private int codigo;
+    private String nome;
 }
