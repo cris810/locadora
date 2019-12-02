@@ -14,4 +14,6 @@ public class Funcionario {
     private String nome;
     private String login;
     private String senha;
+
+    
 }
