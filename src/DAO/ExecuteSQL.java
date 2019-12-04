@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import com.mysql.jdbc.*;
+import java.sql.*;
 
 /**
  *
@@ -13,23 +13,21 @@ import com.mysql.jdbc.*;
  */
 public class ExecuteSQL {
     
-    private Conncetion con;
-    
-        public ExecuteSQL(Connection con){
+private Connection con;
+
+    public ExecuteSQL(Connection con){
         setCon(con);
-        }
-        public Conncetion getCon() {
-            return con;
-        }
-        public void setCon(Connection con){
-        this.con = (Conncetion) con;
     }
 
-    private static class Conncetion {
-
-        public Conncetion() {
-        }
+    public Connection getCon() {
+        return con;
     }
-    
+
+    public void setCon(Connection con) {
+        this.con = con;
+    }
+
+
+
    
 }

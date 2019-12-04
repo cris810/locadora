@@ -7,6 +7,7 @@ package Principal;
 
 import DAO.*;
 import com.mysql.jdbc.*;
+import javax.swing.*;
 
 /**
  *
@@ -119,6 +120,35 @@ public class Login extends javax.swing.JFrame {
          FuncionarioDAO sql = new FuncionarioDAO(con);
          String login = tfUsuario.getText();
          String senha = pfSenha.getText();
+         if (login.equalsIgnoreCase("")|| senha.equalsIgnoreCase("")){
+            JOptionPane.showMessageDialog(null, "Nenhuma campo pode esta vazio", "Vídeo Locadora", JOptionPane.WARNING_MESSAGE);
+            tfUsuario.setText("");
+            pfSenha.setText("");
+         }else{
+            if (sql.Logar(login, senha) == true){
+              new Thread(){
+                  public void run(){
+                      for (int i = 0; i < 101; i++) {
+                          jProgressBar.setValue (i);
+                          try{
+                              Thread.sleep(35);
+                          }catch(Exception ex){
+                              ex.getMessage();
+                          }
+                      }
+                          new Menu(). setVisible(true);
+                          dispose();
+                      }
+                          }.start();
+                          
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuário ou Senha Invalidos",
+                        "Video Locadora", JOptionPane.ERROR_MESSAGE);
+                 tfUsuario.setText("");
+                 pfSenha.setText("");
+
+            }  
+        }
          
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -150,10 +180,8 @@ public class Login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Login().setVisible(true);
         });
     }
 
@@ -168,4 +196,14 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPasswordField pfSenha;
     private javax.swing.JTextField tfUsuario;
     // End of variables declaration//GEN-END:variables
+
+    private static class jProgressBar {
+
+        private static void setValue(int i) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        public jProgressBar() {
+        }
+    }
 }
