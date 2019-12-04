@@ -32,11 +32,11 @@
                       <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" pref="38" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="jTextField3" min="-2" pref="318" max="-2" attributes="0"/>
+                      <Component id="jTF_RG" min="-2" pref="318" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="jLabel12" min="-2" pref="47" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextField5" max="32767" attributes="0"/>
+                      <Component id="jTF_CPF" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -51,25 +51,25 @@
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="jTextField6" min="-2" pref="517" max="-2" attributes="0"/>
+                                      <Component id="jTF_Rua" min="-2" pref="517" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jLabel10" min="-2" pref="25" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField9" min="-2" pref="168" max="-2" attributes="0"/>
+                                      <Component id="jTF_Numero" min="-2" pref="168" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="jTextField8" min="-2" pref="259" max="-2" attributes="0"/>
+                                      <Component id="jTF_Telefone" min="-2" pref="259" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                                       <Component id="jLabel8" min="-2" pref="172" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jTextField11" max="32767" attributes="0"/>
+                                      <Component id="jTF_Nascimento" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jTextField10" min="-2" pref="462" max="-2" attributes="0"/>
+                                      <Component id="jTF_Bairro" min="-2" pref="462" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jLabel7" min="-2" pref="47" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextField7" max="32767" attributes="0"/>
+                                      <Component id="jTF_CEP" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -84,7 +84,7 @@
                                       <Component id="jButton3" min="-2" pref="115" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jTextField12" alignment="1" min="-2" pref="748" max="-2" attributes="0"/>
+                                  <Component id="jTF_Email" alignment="1" min="-2" pref="748" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -100,7 +100,7 @@
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" pref="72" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextField2" max="32767" attributes="0"/>
+                      <Component id="jTF_Nome" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -126,41 +126,41 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                      <Component id="jTextField2" max="32767" attributes="0"/>
+                      <Component id="jTF_Nome" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="jTextField3" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="jTextField5" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="jTF_RG" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="jTF_CPF" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="jLabel12" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel8" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField8" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="jTextField11" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="jTF_Telefone" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="jTF_Nascimento" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField6" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="jTF_Rua" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField9" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="jTF_Numero" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel9" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="jTextField10" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="jTF_Bairro" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                  <Component id="jTextField7" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="jTF_CEP" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel11" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="jTextField12" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="jTF_Email" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -254,23 +254,23 @@
         <Property name="text" type="java.lang.String" value="Email:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="jTF_Nome">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3">
+    <Component class="javax.swing.JTextField" name="jTF_RG">
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField4">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField5">
+    <Component class="javax.swing.JTextField" name="jTF_CPF">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField6">
+    <Component class="javax.swing.JTextField" name="jTF_Rua">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField7">
+    <Component class="javax.swing.JTextField" name="jTF_CEP">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField8">
+    <Component class="javax.swing.JTextField" name="jTF_Telefone">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField9">
+    <Component class="javax.swing.JTextField" name="jTF_Numero">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField10">
+    <Component class="javax.swing.JTextField" name="jTF_Bairro">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel12">
       <Properties>
@@ -280,9 +280,9 @@
         <Property name="text" type="java.lang.String" value="CPF:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField11">
+    <Component class="javax.swing.JTextField" name="jTF_Nascimento">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField12">
+    <Component class="javax.swing.JTextField" name="jTF_Email">
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
@@ -293,6 +293,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton3">
       <Properties>
