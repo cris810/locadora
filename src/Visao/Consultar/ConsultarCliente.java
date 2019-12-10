@@ -19,8 +19,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ConsultarCliente extends javax.swing.JFrame {
      public ConsultarCliente() {
-        initComponents();
-        
+        initComponents(); 
         setTitle("Video Locadora");
         setSize(970, 380);
         AtualizaTable();
@@ -249,7 +248,4 @@ public class ConsultarCliente extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 
-    private void initComponents() {
-        throw new UnsupportedOperationException("Not supported yet."); 
-    }
-}
+   }

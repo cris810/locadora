@@ -83,7 +83,7 @@ public class AlterarCliente extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jTF_Email = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTF_cod = new javax.swing.JTextField();
+        jTF_codigo = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -138,9 +138,9 @@ public class AlterarCliente extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel13.setText("Digite o Código:");
 
-        jTF_cod.addActionListener(new java.awt.event.ActionListener() {
+        jTF_codigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTF_codActionPerformed(evt);
+                jTF_codigoActionPerformed(evt);
             }
         });
 
@@ -222,7 +222,7 @@ public class AlterarCliente extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTF_Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTF_cod, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTF_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29)
                                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -243,7 +243,7 @@ public class AlterarCliente extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jTF_cod, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTF_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -354,9 +354,9 @@ public class AlterarCliente extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTF_codActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_codActionPerformed
+    private void jTF_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_codigoActionPerformed
 
-    }//GEN-LAST:event_jTF_codActionPerformed
+    }//GEN-LAST:event_jTF_codigoActionPerformed
 
     private void jTF_CodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_CodigoActionPerformed
         // TODO add your handling code here:
@@ -364,7 +364,7 @@ public class AlterarCliente extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
-        String codigo = jTF_cod.getText();
+        String codigo = jTF_codigo.getText();
         Connection con = Conexao.AbrirConexao();
         ClienteDAO sql = new ClienteDAO(con);
         int cod = Integer.parseInt(codigo);
@@ -390,7 +390,7 @@ public class AlterarCliente extends javax.swing.JFrame {
         jTF_CPF.setText("");
         
         InserirDados(cod);
-        jTF_cod.setText("");
+        jTF_codigo.setText("");
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -458,6 +458,6 @@ public class AlterarCliente extends javax.swing.JFrame {
     private javax.swing.JTextField jTF_RG;
     private javax.swing.JTextField jTF_Rua;
     private javax.swing.JTextField jTF_Telefone;
-    private javax.swing.JTextField jTF_cod;
+    private javax.swing.JTextField jTF_codigo;
     // End of variables declaration//GEN-END:variables
 }

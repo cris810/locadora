@@ -89,7 +89,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jTF_Codigo" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jTF_cod" min="-2" pref="155" max="-2" attributes="0"/>
+                              <Component id="jTF_codigo" min="-2" pref="155" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                               <Component id="jButton4" min="-2" pref="104" max="-2" attributes="0"/>
                           </Group>
@@ -117,7 +117,7 @@
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTF_cod" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="jTF_codigo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jButton4" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
@@ -314,9 +314,9 @@
         <Property name="text" type="java.lang.String" value="Digite o C&#xf3;digo:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTF_cod">
+    <Component class="javax.swing.JTextField" name="jTF_codigo">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTF_codActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTF_codigoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton4">

@@ -5,6 +5,9 @@
  */
 package Locacao;
 
+import DAO.Conexao;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author crisl
@@ -188,6 +191,11 @@ public class ControleLocacao extends javax.swing.JFrame {
         });
 
         jButton4.setText("OK");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel22.setText("Horas:");
@@ -391,6 +399,20 @@ public class ControleLocacao extends javax.swing.JFrame {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       String pesquisa = jTF_codDVD.getText();
+       Connection con = Conexao.AbrirConexao();
+       if (pesquisa.equals("")) {
+           JOptionPane.showMessageDialog(null, "Digite o codigo do DVD",
+                   "Video Locadora", JOptionPane.WARNING_MESSAGE);
+       } else {
+           DVDDAO sql = new DVDDAO(con);
+           int cod = Integer.parseInt(pesquisa);
+           if (sql.Testar_DVD(cod)) == false) {
+       }
+               
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

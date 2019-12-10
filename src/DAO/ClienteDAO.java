@@ -168,5 +168,109 @@ public class ClienteDAO extends ExecuteSQL{
          }
      }
      
-     
-}
+    public List<Cliente> ListarComboCliente(){
+    
+        String sql = "select nome from cliente order by nome ";
+        List<Cliente> lista = new ArrayList<>();
+        try {
+            PreparedStatement ps = getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs != null) {
+                while (rs.next()) {
+                    
+                    Cliente a = new Cliente();
+                    a.setNome(rs.getString(1));
+                    lista.add(a);
+                }
+                return lista;
+            }else{
+                return null;
+            }
+        } catch (SQLException e){
+            return null;
+        }
+    }
+   
+    
+    public List<Cliente> ConsultaCodigoCliente (String nome){
+        
+        String sql = "select idcliente from cliente where nome ='" + nome + "'";
+        List<Cliente> lista = new ArrayList<>();
+        try { 
+            PreparedStatement ps = getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs != null) {
+                while (rs.next()) {
+
+                    Cliente a = new Cliente();
+                    a.setCodigo(rs.getInt(1));
+                    lista.add(a);
+                }
+                return lista;
+            }else {
+                return null;
+            }
+         } catch (SQLException e) {
+                return null;
+        }
+    }
+    
+    public String Excluir_Cliente (Cliente a){
+        String sql = "delete from cliente where idcliente = ? and nome = ?";
+        
+    try {
+        PreparedStatement ps = getCon().prepareStatement(sql);
+        ps.setInt(1, a.getCodigo());
+        ps.setString(2, a.getNome());
+        if (ps.executeUpdate()> 0 ) {
+            return "Excluído com sucesso.";
+        }else{
+            return "Erro ao excluir";
+        }
+    }catch (SQLException e){
+        return e.getMessage();
+    }
+    }
+    
+    
+    public boolean Testar_DVD(int cod) {
+        boolean teste = false;
+        try {
+            String sql = "Select iddvd from dvd where iddvd = " + cod + "";
+            PreparedStatement ps = getCon(). prepareStatement (sql);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs != null) {
+                while (rs.next()) {
+                    teste = true;
+                }
+            }
+        } catch (SQLException ex) {
+    }
+        return teste;
+    }
+
+    
+    public boolean Testar_Situacao
+         
+        (int cod){
+        boolean teste = false;
+        try {
+            
+            String sql = "select iddvd from dvd where iddvd =" +cod+ "" 
+                    + "and situacao = 'Disponível'";
+            PreparedStatement ps = getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs != null) {
+                while (rs.next()) {
+                    teste = true;
+                }
+            }
+        }catch(SQLException ex) {
+        }
+        return teste;
+        }
+    }
