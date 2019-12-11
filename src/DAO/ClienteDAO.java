@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 package DAO;
-import Modelo.Cliente;
+import Modelo.*;
+import static java.awt.PageAttributes.MediaType.A;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-
+import java.text.SimpleDateFormat;
+import java.util.*;
+import javax.swing.ImageIcon;
 
 
 public class ClienteDAO extends ExecuteSQL{
@@ -18,7 +19,7 @@ public class ClienteDAO extends ExecuteSQL{
     }
     
      public String Inserir_Cliente(Cliente a) {
-        String sql = "insert into cliente values(0,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into cliente values(0,?,?,?,?,?,?,?,?,?,?)";
         try{
     PreparedStatement ps = getCon().prepareStatement(sql);
 
@@ -253,9 +254,7 @@ public class ClienteDAO extends ExecuteSQL{
     }
 
     
-    public boolean Testar_Situacao
-         
-        (int cod){
+    public boolean Testar_Situacao(int cod){
         boolean teste = false;
         try {
             
@@ -273,4 +272,58 @@ public class ClienteDAO extends ExecuteSQL{
         }
         return teste;
         }
+ 
+       
+    public List<DVD> ListarCodFilme (int cod) {
+        String sql = "select idfilme from dvd where iddvd = " + cod + "";
+        List<DVD> lista = new ArrayList<>();
+        try {
+            PreparedStatement ps = getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            if (rs != null) {
+                while (rs.next()){
+                    DVD a = new DVD();
+                    a.setCod_filme(rs.getInt(1));
+                    
+                    lista.add(a);
+                }
+                return lista;
+            }else{
+                return null;
+            }
+        }catch (SQLException e) {
+            return null;
+        }
+    }
+    
+    public List<Filme> Pesquisar_Cod_Filme(int cod) { 
+    String sql = "select idfilme,titulo,ano,duracao,idcategoria,idclassificacao,"
+            +"capa from filme where idfilme = '" + cod + "'";
+    List<Filme> lista = new ArrayList<>();
+    try{
+        PreparedStatement ps = getCon().prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        
+        if (rs != null){
+            while (rs.next()) {
+                Filme a = new Filme();
+                a.setCodigo(rs.getInt(1));
+                a.setTitulo(rs.getString(2));
+                a.setAno(rs.getInt(3));
+                a.setDuracao(rs.getString(4));
+                a.setCod_categoria(rs.getInt(5));
+                a.setCod_classificacao(rs.getInt(6));
+                lista.add(a);
+            }
+            return lista;
+        }else {
+            return null;
+        }
+    }catch(SQLException e) {
+            return null;
+        }
+    }
+      
+    
     }

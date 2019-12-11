@@ -5,10 +5,6 @@
  */
 package Modelo;
 
-/**
- *
- * @author crisl
- */
 public class DVD {
     private int codigo;
     private int cod_filme;

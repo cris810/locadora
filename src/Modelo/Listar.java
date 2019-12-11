@@ -9,6 +9,11 @@ package Modelo;
  *
  * @author crisl
  */
-public class Listar {
+    public class Listar {
+    static private int coddvd;
+    static private int codaluguel;
+    static private int codcliente;
+
+}/*
     
 }

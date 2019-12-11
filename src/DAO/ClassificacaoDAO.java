@@ -5,10 +5,22 @@
  */
 package DAO;
 
+import Modelo.Classificacao;
+import java.sql.Connection;
+import java.util.List;
+
 /**
  *
  * @author crisl
  */
 public class ClassificacaoDAO {
+
+    ClassificacaoDAO(Connection con) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    List<Classificacao> ListarPrecoClassificacao(int codigo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

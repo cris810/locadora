@@ -6,11 +6,10 @@
 package Visao.Alterar;
 
 import DAO.*;
-import Modelo.Cliente;
+import Modelo.*;
 import java.sql.Connection;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.JOptionPane;
+import java.util.*;
+import javax.swing.*;
 
 /**
  *
@@ -23,33 +22,10 @@ public class AlterarCliente extends javax.swing.JFrame {
      */
     public AlterarCliente() {
         initComponents();
-          setLocationRelativeTo(this);
+        setLocationRelativeTo(this);
     }
 
-    private void InserirDados(int cod){
-         
-         Connection con = Conexao.AbrirConexao();
-         ClienteDAO sql = new ClienteDAO(con);
-         List<Cliente> lista = new ArrayList<>();
-         lista = sql.CapturarCliente(cod);
-         
-         for (Cliente a : lista) {
-             
-             jTF_Codigo.setText("" + a.getCodigo());
-             jTF_Nome.setText(a.getNome());
-             jTF_CEP.setText(a.getCEP());
-             jTF_Numero.setText("" + a.getNumero());
-             jTF_Bairro.setText(a.getBairro());
-             jTF_Email.setText(a.getEmail());
-             jTF_Telefone.setText(a.getTelefone());
-             jTF_Rua.setText(a.getRua());
-             jTF_Nascimento.setText(a.getNascimento());
-             jTF_RG.setText(a.getRG());
-             jTF_CPF.setText(a.getCPF());         
-         }
-         
-         Conexao.FecharConexao(con);
-     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -460,4 +436,8 @@ public class AlterarCliente extends javax.swing.JFrame {
     private javax.swing.JTextField jTF_Telefone;
     private javax.swing.JTextField jTF_codigo;
     // End of variables declaration//GEN-END:variables
+
+    private void InserirDados(int cod) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
