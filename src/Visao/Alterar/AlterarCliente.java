@@ -128,6 +128,11 @@ public class AlterarCliente extends javax.swing.JFrame {
         });
 
         jButton1.setText("Limpar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Alterar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -137,6 +142,11 @@ public class AlterarCliente extends javax.swing.JFrame {
         });
 
         jButton3.setText("Cancelar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -273,7 +283,7 @@ public class AlterarCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String codigo = jTF_codigo.getText();
+        String codigo = jTF_Codigo.getText();
         String nome = jTF_Nome.getText();
         String nascimento = jTF_Nascimento.getText();
         String cep = jTF_CEP.getText();
@@ -339,7 +349,7 @@ public class AlterarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jTF_CodigoActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
+         
         String codigo = jTF_codigo.getText();
         Connection con = Conexao.AbrirConexao();
         ClienteDAO sql = new ClienteDAO(con);
@@ -369,6 +379,24 @@ public class AlterarCliente extends javax.swing.JFrame {
         jTF_codigo.setText("");
         
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       jTF_Codigo.setText("");
+        jTF_Nome.setText("");
+        jTF_CEP.setText("");
+        jTF_Numero.setText("");
+        jTF_Bairro.setText("");
+        jTF_Email.setText("");
+        jTF_Telefone.setText("");
+        jTF_Rua.setText("");
+        jTF_Nascimento.setText("");
+        jTF_RG.setText("");
+        jTF_CPF.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -438,6 +466,25 @@ public class AlterarCliente extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void InserirDados(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection con = Conexao.AbrirConexao();
+        ClienteDAO sql = new ClienteDAO(con);
+        List<Cliente> lista = new ArrayList<>();
+        lista = sql.CapturarCliente(cod);
+        
+        for (Cliente a : lista) {
+            
+            jTF_Codigo.setText("" + a.getCodigo());
+            jTF_Nome.setText(a.getNome());
+            jTF_CEP.setText(a.getCEP());
+            jTF_Numero.setText("" + a.getNumero());
+            jTF_Bairro.setText(a.getBairro());
+            jTF_Email.setText(a.getEmail());
+            jTF_Telefone.setText(a.getTelefone());
+            jTF_Rua.setText(a.getRua());
+            jTF_Nascimento.setText(a.getNascimento());
+            jTF_RG.setText(a.getRG());
+            jTF_CPF.setText(a.getCPF());
+            
+        }
     }
 }

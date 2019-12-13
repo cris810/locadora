@@ -5,22 +5,24 @@
  */
 package DAO;
 
+import Modelo.Cliente;
+import Modelo.DVD;
 import Modelo.Filme;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  * @author crisl
  */
-public class FilmeDAO {
-
-    FilmeDAO(Connection con) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    List<Filme> Pesquisar_Cod_Filme(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+public class FilmeDAO extends ExecuteSQL{
+    
+    public FilmeDAO(Connection con) {
+        super(con);
     }
     
 }

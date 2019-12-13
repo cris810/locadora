@@ -109,6 +109,10 @@ public class Cliente {
     public void setCEP(String CEP) {
         this.CEP = CEP;
     }
+
+    public void setCod(int cod) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
              
 }

@@ -37,7 +37,7 @@ public class ControleLocacao extends javax.swing.JFrame {
         jTF_Horas.setText(hora.format (date));
     }
 
-    private void InserirDados(int cod) {
+private void InserirDados(int cod) {
         Connection con = Conexao.AbrirConexao();
         DVDDAO dvd = new DVDDAO(con);
         FilmeDAO filme = new FilmeDAO(con);
@@ -67,6 +67,7 @@ public class ControleLocacao extends javax.swing.JFrame {
             Conexao.FecharConexao(con);
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
