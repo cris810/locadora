@@ -5,41 +5,67 @@
  */
 package Modelo;
 
+
 /**
  *
  * @author crisl
  */
 public class Funcionario {
-    private int cod;
+    private int codigo;
     private String nome;
     private String login;
     private String senha;
 
-    public int getCod() {
-        return cod;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setCod(int cod) {
-        this.cod = cod;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+      
+
+    public String getLogin() {
+        return login;
     }
 
-    public String getNome() {
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
+
+       public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    
 
-    public void setLogin(String string) {
+    
+   public String getCod() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void setSenha(String string) {
+    public void setCodigo(String codigo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public void setCod(String cod) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getcod() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+     
     
 }

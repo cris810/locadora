@@ -140,7 +140,7 @@ public class CadastrarClassificacao extends javax.swing.JFrame {
         String nome = jTF_Nome.getText();
         String preco = jTF_Preco.getText();
        
-        
+        double prc = Double.parseDouble(preco);
         if (nome.equals("") || preco.equals("") ) {
             JOptionPane.showMessageDialog(null, "nenhunm campo pode estar vazio",
                     "Video Locadora", JOptionPane.WARNING_MESSAGE);
@@ -150,6 +150,7 @@ public class CadastrarClassificacao extends javax.swing.JFrame {
             Classificacao a = new Classificacao();
             
             a.setNome(nome);
+            a.setPreco(prc);
           
             
             sql.Inserir_Classificacao(a);

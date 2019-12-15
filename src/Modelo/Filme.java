@@ -14,10 +14,32 @@ public class Filme {
     private int codigo;
     private String titulo;
     private int ano;
+    private String capa;
+    private String classificacao;
+    private String categoria;
     private String duracao;
+    
     private int cod_categoria;
     private int cod_classificacao;
-    private String capa;
+ 
+
+    public String getClassificacao() {
+        return classificacao;
+    }
+
+    public void setClassificacao(String classificacao) {
+        this.classificacao = classificacao;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+    
+    
 
     public int getCodigo() {
         return codigo;

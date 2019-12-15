@@ -92,6 +92,11 @@ public class AlterarClassificacao extends javax.swing.JFrame {
         });
 
         jButton3.setText("Cancelar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -161,10 +166,10 @@ public class AlterarClassificacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         String codigo = jTF_Codigo.getText();
-         String nome = jTF_Nome.getText();
-         String preco = jTF_Preco.getText();
-        int cod = Integer.parseInt(codigo);
+        String preco = jTF_Preco.getText();
+        String nome = jTF_Nome.getText();
+        String codigo = jTF_Codigo.getText();
+         
         
         if (nome.equals("")) {
             JOptionPane.showMessageDialog(null, "nenhum campo estar vazio"
@@ -173,65 +178,33 @@ public class AlterarClassificacao extends javax.swing.JFrame {
         } else {
             Connection con = Conexao.AbrirConexao();
             ClassificacaoDAO sql = new ClassificacaoDAO(con);
+            double prc = Double.parseDouble(preco);
+            int cod = Integer.parseInt(codigo);
             Classificacao a = new Classificacao();
             
             a.setCodigo(cod);
             a.setNome(nome);
-            a.setPreco(preco);
-            //a.setCod(cod);
+            a.setPreco(prc);
                        
             sql.Alterar_Classificacao(a);
             Conexao.FecharConexao(con);
             
             jTF_Nome.setText("");
-            jTF_Codigo.setText("");
-            jTF_Cod.setText("");
             jTF_Preco.setText("");
+            jTF_Cod.setText("");
+            jTF_Codigo.setText("");
             
-            JOptionPane.showMessageDialog(null, "Cadastro Realizado com Sucesso",
+            JOptionPane.showMessageDialog(null, "Atualização Realizada com Sucesso",
                     "Video Locadora", JOptionPane.INFORMATION_MESSAGE);
             dispose();
             
            
     }                                        
-    }
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-       
-            jTF_Nome.setText("");
-            jTF_Codigo.setText("");
-            jTF_Cod.setText("");
-            jTF_Preco.setText("");
-    }                                        
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-         
-        String codigo = jTF_Cod.getText();
-        Connection con = Conexao.AbrirConexao();
-        ClassificacaoDAO sql = new ClassificacaoDAO(con);
-        int cod = Integer.parseInt(codigo);
-        if (sql.Testar_Classificacao(cod) == false) {
-            JOptionPane.showMessageDialog(null, "Codigo não Encontrado no Banco",
-                    "Video Locadora", JOptionPane.ERROR_MESSAGE);
-            Conexao.FecharConexao(con);
-        }
-        if (codigo.equals("")) {
-            JOptionPane.showMessageDialog(null, "Digite um Codigo para Atualizar",
-                    "Video Locadora", JOptionPane.WARNING_MESSAGE);
-        }
-        jTF_Codigo.setText("");
-        jTF_Nome.setText("");
-        jTF_Cod.setText("");
-       jTF_Preco.setText("");
-        
-        InserirDados(cod);
-        jTF_Cod.setText("");
-    
-    
+                                             
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        
-        String codigo = jTF_Cod.getText();
+       String codigo = jTF_Cod.getText();
         Connection con = Conexao.AbrirConexao();
         ClassificacaoDAO sql = new ClassificacaoDAO(con);
         int cod = Integer.parseInt(codigo);
@@ -244,22 +217,26 @@ public class AlterarClassificacao extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Digite um Codigo para Atualizar",
                     "Video Locadora", JOptionPane.WARNING_MESSAGE);
         }
-        jTF_Codigo.setText("");
+        //jTF_Codigo.setText("");
         jTF_Nome.setText("");
-        jTF_Cod.setText("");
         jTF_Preco.setText("");
+        jTF_Codigo.setText("");
+        
         
         InserirDados(cod);
         jTF_Cod.setText("");
-        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jTF_Codigo.setText("");
+        jTF_Preco.setText("");
         jTF_Nome.setText("");
         jTF_Cod.setText("");
-        jTF_Preco.setText("");
+        jTF_Codigo.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 /**
      * @param args the command line arguments
@@ -322,8 +299,9 @@ public class AlterarClassificacao extends javax.swing.JFrame {
             
             jTF_Codigo.setText("" + a.getCodigo());
             jTF_Nome.setText(a.getNome());
-            jTF_Preco.setText(a.getPreco());
+            jTF_Preco.setText(Double.toString(a.getPreco()));
         }
+        Conexao.FecharConexao(con);
     }
 
 }

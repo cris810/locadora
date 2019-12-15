@@ -24,7 +24,7 @@ public class ClassificacaoDAO extends ExecuteSQL{
     PreparedStatement ps = getCon().prepareStatement(sql);
 
     ps.setString(1, a.getNome());
-    ps.setInt(2, (int) a.getPreco());
+    ps.setDouble(2, a.getPreco());
     
 
             if (ps.executeUpdate() > 0 ) {
@@ -50,7 +50,7 @@ public class ClassificacaoDAO extends ExecuteSQL{
     if (rs != null){
         while (rs.next()) { 
                 Classificacao a = new Classificacao();
-                a.setPreco(rs.getInt(1));
+                a.setPreco(rs.getDouble(1));
                 a.setNome(rs.getString(2));
               
 
@@ -82,7 +82,7 @@ public class ClassificacaoDAO extends ExecuteSQL{
          boolean Resultado = false;
      try{
          
-         String sql = "select * from cliente where idcliente = "+ cod +"";
+         String sql = "select * from classificacao where idclassificacao = "+ cod +"";
          PreparedStatement ps = getCon().prepareStatement(sql);
          ResultSet rs = ps.executeQuery();
          
@@ -95,12 +95,11 @@ public class ClassificacaoDAO extends ExecuteSQL{
      }catch(SQLException ex){
          ex.getMessage();
      }
-          Resultado = false;
      return Resultado;
   }
      
      public List<Classificacao> CapturarClassificacao(int cod){
-         String sql = " from cliente where idcliente =" + cod +" ";
+         String sql = "select * from classificacao where idclassificacao =" + cod +" ";
          List<Classificacao> lista = new ArrayList<>();
          try{
              PreparedStatement ps = getCon().prepareStatement(sql);
@@ -108,8 +107,9 @@ public class ClassificacaoDAO extends ExecuteSQL{
              if (rs != null){
                  while (rs.next()){
                      Classificacao a = new Classificacao();
-                     a.setPreco (rs.getInt(1));
+                     a.setCodigo (rs.getInt(1));
                      a.setNome(rs.getString(2));
+                     a.setPreco(rs.getDouble(3));
                      
                      lista.add(a);
                  }
@@ -124,13 +124,13 @@ public class ClassificacaoDAO extends ExecuteSQL{
      
      
    public String Alterar_Classificacao(Classificacao a) {
-         String sql="update * classificacao set nome = ? , preco = ?";
+         String sql="update classificacao set nome = ? , preco = ? where idclassificacao = ? ";
          try{
              PreparedStatement ps = getCon().prepareStatement(sql);
-              
               ps.setString(1, a.getNome());
-              ps.setInt(2, (int) a.getPreco());
-            
+              ps.setDouble(2,  a.getPreco());
+              ps.setInt(3, a.getCodigo());
+             
              
              if (ps.executeUpdate() > 0) {
                  return "Atualizado com sucesso.";
@@ -147,7 +147,7 @@ public class ClassificacaoDAO extends ExecuteSQL{
      
     public List<Classificacao> ListarComboClassificacao(){
     
-        String sql = "select from classificacao nome = ? ,preco=? ";
+        String sql = "select nome from classificacao order by nome ";
         List<Classificacao> lista = new ArrayList<>();
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -172,7 +172,7 @@ public class ClassificacaoDAO extends ExecuteSQL{
     
     public List<Classificacao> ConsultaCodigoClassificacao (String nome){
         
-        String sql = "select idclassificacao from classificao where nome ='" + nome;
+        String sql = "select idclassificacao from classificacao where nome ='" + nome;
         List<Classificacao> lista = new ArrayList<>();
         try { 
             PreparedStatement ps = getCon().prepareStatement(sql);
@@ -195,7 +195,7 @@ public class ClassificacaoDAO extends ExecuteSQL{
     }
     
     public String Excluir_Classificacao (Classificacao a){
-        String sql = "delete from classificacao where idcliente = ? and nome = ?";
+        String sql = "delete from classificacao where idclassificacao = ? and nome = ? ";
         
     try {
         PreparedStatement ps = getCon().prepareStatement(sql);
@@ -300,9 +300,5 @@ public class ClassificacaoDAO extends ExecuteSQL{
             return null;
         }
     }
-
-    public void Alterar_Classificacao(Categoria a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-         
+    
 }
