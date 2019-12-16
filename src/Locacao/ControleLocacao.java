@@ -33,7 +33,7 @@ public class ControleLocacao extends javax.swing.JFrame {
         Date date = new Date();
         SimpleDateFormat data = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat hora = new SimpleDateFormat ("hh:mm");
-        asdfghjk.setText (data.format(date));
+        jTF_DataLocacao.setText (data.format(date));
         jTF_Horas.setText(hora.format (date));
     }
 
@@ -58,11 +58,11 @@ private void InserirDados(int cod) {
         ClassificacaoDAO cla = new ClassificacaoDAO(con);
         List<Classificacao> listaCLA = new ArrayList<>();
         String b = jTF_Classificacao.getText();
-        int codigo = Interger.parseInt(b);
+        int codigo = Integer.parseInt(b);
         listaCLA = cla.ListarPrecoClassificacao(codigo);
             for (Classificacao a : listaCLA){
                 double preco = a.getPreco();
-                jTF_Valor.stText("" +preco+ "0");
+                jTF_Valor.setText("" +preco+ "0");
             }
             Conexao.FecharConexao(con);
     }
@@ -467,7 +467,7 @@ private void InserirDados(int cod) {
    String dvd = jTF_Codigo.getText();
    String cliente  = jTF_Codigo.getText();
    String horario = jTF_Horas.getText();
-   String aluguel = asdfghjk.getText();
+   String aluguel = jTF_Valor.getText();
    
    if (dvd.equals("") || cliente.equals("") || jDateDevolucao.getDate() == null) {
        JOptionPane.showMessageDialog(null,"Nenhum campo pode estar vazio ",

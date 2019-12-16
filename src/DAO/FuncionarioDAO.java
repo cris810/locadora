@@ -234,13 +234,12 @@ public class FuncionarioDAO extends  ExecuteSQL{
     }
     
     public String Excluir_Funcionario (Funcionario a){
-        String sql = "delete from funcionario where idfuncionario = ? and nome = ? , login =? , senha = ?";
+        String sql = "delete from funcionario where idfuncionario = ? and nome = ?";
         
     try {
         PreparedStatement ps = getCon().prepareStatement(sql);
-        ps.setString(1, a.getNome());
-        ps.setString(2, a.getLogin());
-        ps.setString(3, a.getSenha());
+        ps.setInt(1, a.getCodigo());
+        ps.setString(2, a.getNome());
         
         if (ps.executeUpdate()> 0 ) {
             return "Excluído com sucesso.";

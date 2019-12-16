@@ -172,7 +172,7 @@ public class ExcluirFuncionario extends javax.swing.JFrame {
         List<Funcionario> lista = new ArrayList<>();
         String nome = jCB_Nome.getSelectedItem().toString();
         
-        lista = sql.ConsultarCodigoFuncionario(nome);
+        lista = sql.ConsultaCodigoFuncionario(nome);
         
         for (Funcionario b : lista) {
             int a = b.getCodigo();

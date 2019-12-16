@@ -39,7 +39,7 @@ public class ExcluirClassificacao extends javax.swing.JFrame {
     public ExcluirClassificacao() {
         initComponents();
         setLocationRelativeTo(this);
-        
+        AtualizaCombo();
     }
 
     /**
