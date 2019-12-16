@@ -172,7 +172,7 @@ public class ClassificacaoDAO extends ExecuteSQL{
     
     public List<Classificacao> ConsultaCodigoClassificacao (String nome){
         
-        String sql = "select idclassificacao from classificacao where nome ='" + nome;
+        String sql = "select idclassificacao from classificacao where nome ='" + nome + "'";
         List<Classificacao> lista = new ArrayList<>();
         try { 
             PreparedStatement ps = getCon().prepareStatement(sql);

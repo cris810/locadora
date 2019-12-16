@@ -10,6 +10,7 @@ import Modelo.*;
 import java.awt.HeadlessException;
 import java.io.File;
 import java.sql.Connection;
+import java.util.*;
 import javax.swing.*;
 
 /**
@@ -17,6 +18,39 @@ import javax.swing.*;
  * @author crisl
  */
 public class CadastrarFilme extends javax.swing.JFrame {
+ public void AtualizaCombo(){
+        Connection con = Conexao.AbrirConexao();
+        ClassificacaoDAO sql = new ClassificacaoDAO(con);
+        List<Classificacao> lista = new ArrayList<>();
+        
+        lista = sql.ListarComboClassificacao();
+        jCB_Nome.addItem("");
+        
+        for (Classificacao b : lista){
+            jCB_Nome.addItem(b.getNome());
+        }
+    
+    
+        Conexao.FecharConexao(con);
+        
+    }
+
+ public void AtualizaCombo1(){
+        Connection con = Conexao.AbrirConexao();
+        CategoriaDAO sql = new CategoriaDAO(con);
+        List<Categoria> lista = new ArrayList<>();
+        
+        lista = sql.ListarComboCategoria();
+        jCB_Nome1.addItem("");
+        
+        for (Categoria b : lista){
+            jCB_Nome1.addItem(b.getNome());
+        }
+    
+    
+        Conexao.FecharConexao(con);
+        
+    }  
 
     /**
      * Creates new form CadastrarFilme
@@ -24,6 +58,9 @@ public class CadastrarFilme extends javax.swing.JFrame {
     public CadastrarFilme() {
         initComponents();
          setLocationRelativeTo(this);
+         AtualizaCombo();
+         AtualizaCombo1();
+
     }
 
     /**
@@ -50,8 +87,8 @@ public class CadastrarFilme extends javax.swing.JFrame {
         jTF_Classificacao = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jTF_Capa = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jCB_Nome1 = new javax.swing.JComboBox<>();
+        jCB_Nome = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -85,17 +122,15 @@ public class CadastrarFilme extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Capa:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jCB_Nome1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jCB_Nome1ActionPerformed(evt);
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        jCB_Nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                jCB_NomeActionPerformed(evt);
             }
         });
 
@@ -107,6 +142,11 @@ public class CadastrarFilme extends javax.swing.JFrame {
         });
 
         jButton4.setText("Limpar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Cadastrar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -116,6 +156,11 @@ public class CadastrarFilme extends javax.swing.JFrame {
         });
 
         jButton6.setText("Cancelar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         lbCapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/dvd.png"))); // NOI18N
 
@@ -160,13 +205,13 @@ public class CadastrarFilme extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jTF_Classificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(21, 21, 21)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jCB_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel6)
                             .addGap(21, 21, 21)
                             .addComponent(jTF_Categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jCB_Nome1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(38, 38, 38)
                 .addComponent(lbCapa)
                 .addGap(0, 29, Short.MAX_VALUE))
@@ -205,13 +250,13 @@ public class CadastrarFilme extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTF_Categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jCB_Nome1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jTF_Classificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel7))
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jCB_Nome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
@@ -231,13 +276,35 @@ public class CadastrarFilme extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    private void jCB_Nome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB_Nome1ActionPerformed
+        Connection con = Conexao.AbrirConexao();
+        CategoriaDAO sql = new CategoriaDAO(con);
+        List<Categoria> lista = new ArrayList<>();
+        String nome =jCB_Nome1.getSelectedItem().toString();
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+        lista = sql.ConsultaCodigoCategoria(nome);
+
+        for (Categoria b : lista) {
+            int a = b.getCodigo();
+            jTF_Categoria.setText("" + a);
+        }
+        Conexao.FecharConexao(con);
+                                }//GEN-LAST:event_jCB_Nome1ActionPerformed
+
+    private void jCB_NomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB_NomeActionPerformed
+        Connection con = Conexao.AbrirConexao();
+        ClassificacaoDAO sql = new ClassificacaoDAO(con);
+        List<Classificacao> lista = new ArrayList<>();
+        String nome =jCB_Nome.getSelectedItem().toString();
+
+        lista = sql.ConsultaCodigoClassificacao(nome);
+
+        for (Classificacao b : lista) {
+            int a = b.getCodigo();
+            jTF_Classificacao.setText("" + a);
+        }
+        Conexao.FecharConexao(con);
+    }//GEN-LAST:event_jCB_NomeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 try{
@@ -257,16 +324,14 @@ try{
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
          
          String titulo = jTF_Titulo.getText();
-         String categoria = jTF_Categoria.getText();
-         String ano = jTF_Ano.getText();
-         String classificacao = jTF_Classificacao.getText();
+         String codCat = jTF_Categoria.getText();
+         String Ano = jTF_Ano.getText();;
+         String codClass = jTF_Classificacao.getText();
          String capa= jTF_Capa.getText();
          String duracao = jTF_Duracao.getText();
+     
         
-         
-       
-        
-        if (titulo.equals("") || categoria.equals("") || ano.equals("") || classificacao.equals("") 
+        if (titulo.equals("") || codCat.equals("") || Ano.equals("") || codClass.equals("") 
                 || capa.equals("") || duracao.equals("")) {
             JOptionPane.showMessageDialog(null, "nenhunm campo pode estar vazio",
                     "Video Locadora", JOptionPane.WARNING_MESSAGE);
@@ -274,17 +339,18 @@ try{
             Connection con = Conexao.AbrirConexao();
             FilmeDAO sql = new FilmeDAO(con);
             Filme a = new Filme();
+            int ct = Integer.parseInt(codCat);
+            int cl = Integer.parseInt(codClass);
+            int ano = Integer.parseInt(Ano);
             
             
             a.setTitulo(titulo);
-            a.setCategoria(categoria);
+            a.setCod_categoria(ct);
             a.setAno(ano);
-            a.setClassificacao(classificacao);
+            a.setCod_classificacao(cl);
             a.setCapa(capa);
             a.setDuracao(duracao);
             
-            
-          
             
             sql.Inserir_Filme(a);
             Conexao.FecharConexao(con);
@@ -301,6 +367,21 @@ try{
             dispose();     
         }
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       
+            jTF_Codigo.setText("");
+            jTF_Titulo.setText("");
+            jTF_Categoria.setText("");
+            jTF_Ano.setText("");
+            jTF_Classificacao.setText("");
+            jTF_Capa.setText("");
+            jTF_Duracao.setText("");
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -342,8 +423,8 @@ try{
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jCB_Nome;
+    private javax.swing.JComboBox<String> jCB_Nome1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

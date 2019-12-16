@@ -65,12 +65,12 @@ public class CategoriaDAO extends ExecuteSQL {
      
      public List<Categoria> Pesquisar_Nome_Categoria(String nome){
         String sql = "select idcategoria, nome"
-                +"from categoria where nome Like'"+nome+"'";
+                +"from categoria where nome like'"+nome+"'";
         return null;
 }
      
      public List<Categoria> Pesquisar_Cod_Categoria(int cod){
-        String sql = "select idcategoria, Nome "+" from categoria where idcategoria = '" + cod + "'";
+        String sql = "select idcategoria, nome "+" from categoria where idcategoria = '" + cod + "'";
         return null;
 }
      

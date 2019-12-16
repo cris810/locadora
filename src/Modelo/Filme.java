@@ -15,30 +15,45 @@ public class Filme {
     private String titulo;
     private int ano;
     private String capa;
-    private String classificacao;
-    private String categoria;
+    private int classificacao;
+    private int categoria;
     private String duracao;
-    
-    private int cod_categoria;
-    private int cod_classificacao;
- 
+    private String nome;
 
-    public String getClassificacao() {
+    public int getClassificacao() {
         return classificacao;
     }
 
-    public void setClassificacao(String classificacao) {
+    public void setClassificacao(int classificacao) {
         this.classificacao = classificacao;
     }
 
-    public String getCategoria() {
+    public int getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(int categoria) {
         this.categoria = categoria;
     }
+
+        
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
     
+    private int cod_categoria;
+    private int cod_classificacao;
     
 
     public int getCodigo() {
@@ -57,13 +72,6 @@ public class Filme {
         this.titulo = titulo;
     }
 
-    public int getAno() {
-        return ano;
-    }
-
-    public void setAno(int ano) {
-        this.ano = ano;
-    }
 
     public String getDuracao() {
         return duracao;
@@ -96,6 +104,5 @@ public class Filme {
     public void setCapa(String capa) {
         this.capa = capa;
     }
-    
-    
+
 }

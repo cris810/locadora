@@ -9,13 +9,9 @@ import DAO.*;
 import Modelo.Classificacao;
 import java.sql.Connection;
 import javax.swing.*;
-import Modelo.Cliente;
-import Modelo.DVD;
-import Modelo.Filme;
+import Modelo.*;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 public class ControleLocacao extends javax.swing.JFrame {
@@ -475,10 +471,10 @@ private void InserirDados(int cod) {
    } else {
        String devolucao = new SimpleDateFormat("dd/MM/yyyy"). format(jDateDevolucao.getDate());
        Connection con = Conexao.AbrirConexao();
-       AluguelDAO sql = new AluguelDAO(con);
+       
        int coddvd = Integer.parseInt(dvd);
        int codcli = Integer.parseInt(Cliente);
-       Aluguel a = new Aluguel();
+       
        a.setCoddvd(coddvd);
        a.setCodCliente(codcli);
        a.setHorario(horario);
